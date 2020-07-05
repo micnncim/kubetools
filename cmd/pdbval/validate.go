@@ -28,6 +28,7 @@ func validate(pdb *policyv1beta1.PodDisruptionBudget, deploy *appsv1.Deployment)
 	}
 
 	if pdb.Spec.MaxUnavailable != nil {
+		// ref: https://github.com/kubernetes/kubernetes/blob/23be9587a0f8677eb8091464098881df939c44a9/pkg/controller/disruption/disruption.go#L539
 		maxUnavailable, err := intstr.GetValueFromIntOrPercent(pdb.Spec.MaxUnavailable, replicas, true)
 		if err != nil {
 			return err
@@ -51,6 +52,7 @@ func validate(pdb *policyv1beta1.PodDisruptionBudget, deploy *appsv1.Deployment)
 	}
 
 	if pdb.Spec.MinAvailable != nil {
+		// ref: https://github.com/kubernetes/kubernetes/blob/23be9587a0f8677eb8091464098881df939c44a9/pkg/controller/disruption/disruption.go#L539
 		minAvailable, err := intstr.GetValueFromIntOrPercent(pdb.Spec.MinAvailable, replicas, true)
 		if err != nil {
 			return err

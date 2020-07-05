@@ -71,7 +71,6 @@ func validate(pdb *policyv1beta1.PodDisruptionBudget, deploy *appsv1.Deployment)
 				pdb.Name, pdb.Spec.MinAvailable.String(), deploy.Name, replicas,
 			)
 		}
-		return nil
 	}
 
 	return nil

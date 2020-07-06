@@ -41,7 +41,7 @@ func run(pdbManifest, deployManifest string) error {
 	}
 
 	if !isTarget(pdb, deploy) {
-		fmt.Fprintln(os.Stdout, "label selector not matched")
+		fmt.Fprintln(os.Stdout, "namespace or label selector not matched")
 		return nil
 	}
 

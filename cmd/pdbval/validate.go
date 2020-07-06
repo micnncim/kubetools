@@ -9,15 +9,20 @@ import (
 )
 
 // isTarget determine the given Deployment is a target for the given PodDisruptionBudget
-// using PodDisruptionBudget's label selector.
+// using namespace and PodDisruptionBudget's label selector.
 // Currently it support only matchLabels, not matchExpressions.
 func isTarget(pdb *policyv1beta1.PodDisruptionBudget, deploy *appsv1.Deployment) bool {
+	if pdb.Namespace != deploy.Namespace {
+		return false
+	}
+
 	for k, v := range pdb.Spec.Selector.MatchLabels {
 		value, ok := deploy.Spec.Template.ObjectMeta.Labels[k]
 		if !ok || value != v {
 			return false
 		}
 	}
+
 	return true
 }
 

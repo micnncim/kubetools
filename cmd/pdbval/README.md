@@ -38,7 +38,7 @@ spec:
         - name: nginx
           image: nginx:1.14.2
 
-$ pdbval -pdb pdb.yaml -deploy manifests/test-pdb/deployment.yaml
+$ pdbval -pdb pdb.yaml -deploy deployment.yaml
 PodDisruptionBudget(test-pdb): minAvailable(70%) is greater than or equal to Deployment(nginx) replicas(2)
 
 $ echo $?

@@ -2,7 +2,7 @@ GO_TEST ?= go test
 
 .PHONY: test
 test:
-	$(GO_TEST) -v -race ./...
+	@$(GO_TEST) -v -race ./...
 
 build/%:
 	@go build -o bin/$* cmd/$*/*

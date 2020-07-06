@@ -40,4 +40,7 @@ spec:
 
 $ pdbval -pdb pdb.yaml -deploy manifests/test-pdb/deployment.yaml
 PodDisruptionBudget(test-pdb): minAvailable(70%) is greater than or equal to Deployment(nginx) replicas(2)
+
+$ echo $?
+1
 ```

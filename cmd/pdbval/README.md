@@ -13,7 +13,6 @@ metadata:
   namespace: test-pdb
 spec:
   minAvailable: 70%
-  # maxUnavailable: 1%
   selector:
     matchLabels:
       app: nginx

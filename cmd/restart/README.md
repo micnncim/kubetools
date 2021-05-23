@@ -1,6 +1,6 @@
 # restart
 
-Subset of `kubectl rollout restart`.
+A minimal implementation of `kubectl rollout restart`.
 `kubectl` is more recommended.
 Only supports Deployments.
 
